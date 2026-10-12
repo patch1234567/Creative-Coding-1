@@ -1,0 +1,13 @@
+span{
+	color:brown;
+	font-style:italic;
+}
+
+.pageLink{
+	color:blue;
+	font-style:none;
+}
+
+#page2Link{
+	color:red;
+}

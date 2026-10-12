@@ -1,0 +1,15 @@
+@font-face {
+  font-family: superCursed; /* set name */
+  src: url(SuperCursed-E40Vz.ttf); /* url of the font */
+}
+body{
+	background-image: url("redStaticBG.jpg");
+}
+p{
+	color:gray;
+	font-family: superCursed;
+}
+h1{
+	color:gray;
+	font-family: superCursed;
+
