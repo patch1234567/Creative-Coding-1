@@ -1,0 +1,80 @@
+<DOCTYPE html>
+	<html>
+		<head>
+			<title>Math Game</title>
+			<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+			<link rel="stylesheet" type="text/css" href="mainstyle.css">
+			
+			<script>
+				var questionNumber = 1;
+				var correctAnswers = 0;
+				
+				var actualAnswer;
+				function printQuestion(){
+						
+					var number1, number2;
+					
+					for(var i = 0; i < 5; i++){
+						number1 = Math.floor(Math.random() * 10);
+						number2 = Math.floor(Math.random() * 10);
+					}
+
+					actualAnswer = number1 + number2;
+					
+					document.getElementById("question").innerHTML = "Question #" + questionNumber + ":" + '<br>' + "What is " + number1 + " + " + number2 + "?"
+					
+					document.getElementById("answer").focus();
+					questionNumber += 1;
+				}
+				
+				function checkAnswer(){
+					var myAnswer = document.getElementById("answer").value;
+					
+					if(myAnswer == actualAnswer){
+						
+						document.getElementById("message").innerHTML = "Good job! You answered " + myAnswer + "!";
+						correctAnswers += 1;
+						
+					}else{
+						document.getElementById("message").innerHTML = "You answered " + myAnswer + ". The actual answer was " + actualAnswer +".";
+		
+					}
+					
+					document.getElementById("answer").value = "";
+					
+					if(questionNumber < 11){
+						printQuestion();
+					}else{
+						document.getElementById("message").innerHTML = "That was the last question! You got " + correctAnswers + " out of 10 questions correct! That's " + correctAnswers * 10 + "%. If you'd like to play again, hit the submit button to get 10 new questions.";
+						questionNumber = 1;
+						correctAnswers = 0;
+					}
+					
+					
+				}
+				
+			</script>
+		</head>
+	
+		<body onload="printQuestion();">
+			
+			<div id="question"></div>
+			<br> &nbsp;
+			Your answer <input type="input" id="answer">
+			<br> &nbsp;
+			<button id="mySubmit" onclick="checkAnswer();">Submit</button>
+			<br> &nbsp;
+			<div id="message"></div>
+			
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			
+			<a href="homepage.html"><span class="pageLink">Home page</span></a>
+			<a href="page2.html"><span class="pageLink"><span id="page2Link">Page 2</span></a>
+			<a href="page3.html"><span class="pageLink">Page 3</span></a>
+			
+		</body>
+	</html>
